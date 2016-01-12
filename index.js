@@ -76,7 +76,7 @@ app.factory('normalizeData', ['isValueDate', 'convertValueToDate', function (isV
             var value = obj[prop];
             if (value != undefined) {
                 if (angular.isArray(value)) {
-                    value.map(item => normalize(item));
+                    value.map(function (item) { return normalize(item); });
                     continue;
                 }
                 if (typeof value == 'string') {
