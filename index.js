@@ -69,7 +69,7 @@ app.service('normalizeIncomingHttpData', ['$http', 'normalizeData', function ($h
  */
 app.factory('normalizeData', ['isValueDate', 'convertValueToDate', function (isValueDate, convertValueToDate) {
     return function normalize (obj) {
-        if (obj == ('' + obj)) {
+        if (obj === ('' + obj)) {
             return obj;
         }
         for (var prop in obj) {
@@ -82,7 +82,7 @@ app.factory('normalizeData', ['isValueDate', 'convertValueToDate', function (isV
                 if (typeof value == 'string') {
                     var checkDate = isValueDate(value);
                     if (checkDate) {
-                        value = convertValueToDate(checkData);
+                        value = convertValueToDate(checkDate);
                     } else if ((value - 0) == value && ('' + value).trim().length > 0) {
                         value = value - 0;
                     }
