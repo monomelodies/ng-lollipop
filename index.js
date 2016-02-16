@@ -12,6 +12,10 @@ app.service('postRegularForm', ['$http', function ($http) {
     function param(obj) {
         var query = '', name, value, fullSubName, subValue, innerObj;
         for (name in obj) {
+            // These are (normally) Angular internals
+            if (name.substring(0, 1) == '$') continue;
+            // Posting a function doesn't make any sense
+            if (typeof obj[name] == 'function') continue;
             value = obj[name];
             if (value instanceof Array) {
                 for (var i = 0; i < value.length; ++i) {
