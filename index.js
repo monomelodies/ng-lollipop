@@ -3,6 +3,11 @@
 
 var app = angular.module('lollipop', []);
 
+function appendTransform(defaults, transform) {
+    defaults = angular.isArray(defaults) ? defaults : [defaults];
+    return defaults.concat(transform);
+}
+
 app.service('postRegularForm', ['$http', function ($http) {
     delete $http.defaults.headers.common['X-Requested-With'];
     $http.defaults.withCredentials = true;
@@ -47,20 +52,13 @@ app.service('postRegularForm', ['$http', function ($http) {
         return query.length ? query.substr(0, query.length - 1) : query;
     };
     // Override $http service's default transformRequest
-    $http.defaults.transformRequest = [function(data) {
+    appendTransform($http.defaults.transformRequest, function(data) {
         return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
-    }];
+    });
 }]);
 
 app.service('normalizeIncomingHttpData', ['$http', 'normalizeData', function ($http, normalizeData) {
-
-    if (!$http.defaults.transformResponse) {
-        $http.defaults.transformResponse = [];
-    }
-    if (!angular.isArray($http.defaults.transformResponse)) {
-        $http.defaults.transformResponse = [$http.defaults.transformResponse];
-    }
-    $http.defaults.transformResponse.push(normalizeData);
+    appendTransform($http.defaults.transformResponse, normalizeData);
 }]);
 
 /**
