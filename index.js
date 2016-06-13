@@ -51,8 +51,14 @@ app.service('postRegularForm', ['$http', function ($http) {
         }
         return query.length ? query.substr(0, query.length - 1) : query;
     };
-    // Override $http service's default transformRequest
+    // Extend $http service's default transformRequest
     $http.defaults.transformRequest = appendTransform($http.defaults.transformRequest, function(data) {
+        if (typeof data == 'string') {
+            try {
+                data = angular.fromJson(data);
+            } catch (e) {
+            }
+        }
         return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
     });
 }]);
