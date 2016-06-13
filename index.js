@@ -52,13 +52,13 @@ app.service('postRegularForm', ['$http', function ($http) {
         return query.length ? query.substr(0, query.length - 1) : query;
     };
     // Override $http service's default transformRequest
-    appendTransform($http.defaults.transformRequest, function(data) {
+    $http.defaults.transformRequest = appendTransform($http.defaults.transformRequest, function(data) {
         return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
     });
 }]);
 
 app.service('normalizeIncomingHttpData', ['$http', 'normalizeData', function ($http, normalizeData) {
-    appendTransform($http.defaults.transformResponse, normalizeData);
+    $http.defaults.transformResponse = appendTransform($http.defaults.transformResponse, normalizeData);
 }]);
 
 /**
