@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "Normalize HTTP requests for Angular applications",
   "main": "index.js",
+  "files": ["lib"],
   "scripts": {
     "test": "karma start"
   },
