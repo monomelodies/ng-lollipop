@@ -1,4 +1,4 @@
 {
-    "source": "./index.js",
+    "source": "./lib",
     "destination": "./esdoc"
 }
