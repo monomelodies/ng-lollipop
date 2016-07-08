@@ -1,0 +1,10 @@
+site_name: ngLollipop
+site_url: http://ng-lollipop.monomelodies.nl/docs/
+repo_url: https://github.com/monomelodies/lollipop
+
+pages:
+- Overview:
+    - 'Home': 'index.md'
+
+copyright: Copyright &copy; 2016, <a href="http://www.monomelodies.nl/">Marijn Ophorst</a>
+
