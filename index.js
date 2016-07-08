@@ -3,6 +3,8 @@
 
 var app = angular.module('lollipop', []);
 
+module.exports = app.name;
+
 function appendTransform(defaults, transform) {
     defaults = angular.isArray(defaults) ? defaults : [defaults];
     return defaults.concat(transform);
