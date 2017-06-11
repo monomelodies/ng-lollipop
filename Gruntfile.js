@@ -8,10 +8,10 @@ module.exports = function (grunt) {
     grunt.config('browserify', {
         monad: {
             src: 'src/index.js',
-            dest: 'dist/ng-tangle.js',
+            dest: 'dist/ng-lollipop.js',
             options: {
                 transform: ['babelify'],
-                standalone: 'ngTangle',
+                standalone: 'lollipop',
                 watch: true
             }
         }
@@ -26,8 +26,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.config('uglify', {
         js: {
-            src: 'dist/ng-tangle.js',
-            dest: 'dist/ng-tangle.min.js'
+            src: 'dist/ng-lollipop.js',
+            dest: 'dist/ng-lollipop.min.js'
         }
     });
 
