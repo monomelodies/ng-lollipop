@@ -16,5 +16,6 @@ module.exports = app.name;
  * @see normalizeData:factory
  */
 app.service('normalizeIncomingHttpData', ['$http', 'normalizeData', function ($http, normalizeData) {
-  $http.defaults.transformResponse = appendTransform($http.defaults.transformResponse, normalizeData);
+    $http.defaults.transformResponse = appendTransform($http.defaults.transformResponse, normalizeData);
 }]);
+

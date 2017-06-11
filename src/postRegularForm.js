@@ -18,15 +18,10 @@ app.service('postRegularForm', ['$http', function ($http) {
     delete $http.defaults.headers.common['X-Requested-With'];
     $http.defaults.withCredentials = true;
     $http.defaults.headers.post["Content-Type"] = 'application/x-www-form-urlencoded;charset=utf-8';
-
+    
     // http://victorblog.com/2012/12/20/make-angularjs-http-service-behave-like-jquery-ajax/
     function param(obj) {
-        var query = '',
-            name,
-            value,
-            fullSubName,
-            subValue,
-            innerObj;
+        var query = '', name, value, fullSubName, subValue, innerObj;
         for (name in obj) {
             // These are (normally) Angular internals
             if (name.substring(0, 1) == '$') continue;
@@ -63,12 +58,14 @@ app.service('postRegularForm', ['$http', function ($http) {
         return query.length ? query.substr(0, query.length - 1) : query;
     };
     // Extend $http service's default transformRequest
-    $http.defaults.transformRequest = appendTransform($http.defaults.transformRequest, function (data) {
+    $http.defaults.transformRequest = appendTransform($http.defaults.transformRequest, function(data) {
         if (typeof data == 'string') {
             try {
                 data = angular.fromJson(data);
-            } catch (e) {}
+            } catch (e) {
+            }
         }
         return angular.isObject(data) && String(data) !== '[object File]' ? param(data) : data;
     });
 }]);
+

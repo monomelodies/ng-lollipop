@@ -1,12 +1,6 @@
 
 "use strict";
 
-var _typeof2 = require('babel-runtime/helpers/typeof');
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var isValueDate = require('./isValueDate');
 var convertValueToDate = require('./convertValueToDate');
 
@@ -23,27 +17,25 @@ module.exports = app.name;
  * @return object The "normalized" object.
  */
 app.factory('normalizeData', ['isValueDate', 'convertValueToDate', function (isValueDate, convertValueToDate) {
-    return function normalize(obj) {
-        if (obj === '' + obj) {
+    return function normalize (obj) {
+        if (obj === ('' + obj)) {
             return obj;
         }
         for (var prop in obj) {
             var value = obj[prop];
             if (value != undefined) {
                 if (angular.isArray(value)) {
-                    value.map(function (item) {
-                        return normalize(item);
-                    });
+                    value.map(function (item) { return normalize(item); });
                     continue;
                 }
                 if (typeof value == 'string') {
                     var checkDate = isValueDate(value);
                     if (checkDate) {
                         value = convertValueToDate(checkDate);
-                    } else if (value - 0 == value && ('' + value).trim().length > 0) {
+                    } else if ((value - 0) == value && ('' + value).trim().length > 0) {
                         value = value - 0;
                     }
-                } else if (typeof value != 'undefined' && (typeof value === 'undefined' ? 'undefined' : (0, _typeof3.default)(value)) == 'object') {
+                } else if (typeof value != 'undefined' && typeof value == 'object') {
                     value = normalize(value);
                 }
             }
@@ -52,3 +44,4 @@ app.factory('normalizeData', ['isValueDate', 'convertValueToDate', function (isV
         return obj;
     };
 }]);
+

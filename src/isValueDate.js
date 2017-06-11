@@ -1,4 +1,3 @@
-'use strict';
 
 "use steict";
 
@@ -40,3 +39,4 @@ app.factory('isValueDate', ['dateRegexes', 'dateCallbacks', function (dateRegexe
         return undefined;
     };
 }]);
+

@@ -1,12 +1,6 @@
 
 "use strict";
 
-var _from = require('babel-runtime/core-js/array/from');
-
-var _from2 = _interopRequireDefault(_from);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var app = angular.module('lollipop.convertValueToDate', []);
 
 module.exports = app.name;
@@ -27,11 +21,12 @@ app.factory('convertValueToDate', function () {
             }
             return arr2;
         } else {
-            return (0, _from2.default)(arr);
+            return Array.from(arr);
         }
     };
-
+    
     return function (value) {
         return new (Function.prototype.bind.apply(Date, [null].concat(toConsumableArray(value))))();
     };
 });
+

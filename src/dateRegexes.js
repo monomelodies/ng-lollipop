@@ -13,3 +13,4 @@ module.exports = app.name;
  * your own variations where needed.
  */
 app.value('dateRegexes', [/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/, /^(\d{4})-(\d{2})-(\d{2})/]);
+
