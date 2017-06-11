@@ -10,8 +10,7 @@ export default angular.module('lollipop.convertValueToDate', [])
      * @return Date
      */
     .factory('convertValueToDate', () => value => new (Function.prototype.bind.apply(Date, [null].concat(toConsumableArray(value))))())
-    .name
-});
+    .name;
 
 function toConsumableArray(arr) {
     if (Array.isArray(arr)) {
