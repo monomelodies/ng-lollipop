@@ -25,7 +25,7 @@ export default angular.module('lollipop.isValueDate', [dateRegexes, dateCallback
                     let returner = [];
                     for (let j = 0; j < match.length; j++) {
                         if (j in dateCallbacks) {
-                            returner.push(dateCallbacks[i](match[j]));
+                            returner.push(dateCallbacks[j](match[j]));
                         } else {
                             returner.push(match[j]);
                         }
