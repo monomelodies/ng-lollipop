@@ -1,6 +1,6 @@
 {
   "name": "ng-lollipop",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Normalize HTTP requests for Angular applications",
   "main": "lib/index.js",
   "files": [
