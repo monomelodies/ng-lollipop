@@ -13,7 +13,6 @@ export default angular.module('lollipop.postRegularForm', [])
      */
     .service('postRegularForm', ['$http', function ($http) {
         delete $http.defaults.headers.common['X-Requested-With'];
-        $http.defaults.withCredentials = true;
         $http.defaults.headers.post["Content-Type"] = 'application/x-www-form-urlencoded;charset=utf-8';
         
         // http://victorblog.com/2012/12/20/make-angularjs-http-service-behave-like-jquery-ajax/
