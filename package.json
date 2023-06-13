@@ -25,17 +25,17 @@
   },
   "homepage": "https://github.com/monomelodies/ng-lollipop#readme",
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.15.0",
-    "@babel/plugin-transform-async-to-generator": "^7.14.5",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/runtime": "^7.15.3",
+    "@babel/cli": "^7.22.5",
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-transform-async-to-generator": "^7.22.5",
+    "@babel/plugin-transform-runtime": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
+    "@babel/runtime": "^7.22.5",
     "babelify": "^10.0.0",
-    "grunt": "^1.4.1",
+    "grunt": "^1.6.1",
     "grunt-browserify": "^6.0.0",
-    "grunt-contrib-uglify": "^5.0.1",
+    "grunt-contrib-uglify": "^5.2.2",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-shell": "^3.0.1"
+    "grunt-shell": "^4.0.0"
   }
 }
